@@ -1,1 +1,1 @@
-## fennec os a custom based distribution 
+## Fennec os a custom debian based distribution 

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<metacity_theme>
+  <info>
+    <name>Fennec</name>
+    <author>hafid153</author>
+    <copyright>© 2025 Fennec Theme</copyright>
+    <date>2025-11-02</date>
+    <description>Thème Marco style Fennec : néon, translucide, arrondi</description>
+  </info>
+
+  <!-- FRAME GEOMETRY -->
+  <frame_geometry name="normal" rounded_top_left="true" rounded_top_right="true" title_scale="medium">
+    <distance name="left_width" value="6"/>
+    <distance name="right_width" value="6"/>
+    <distance name="bottom_height" value="6"/>
+    <distance name="title_vertical_pad" value="4"/>
+    <distance name="title_horizontal_pad" value="10"/>
+    <border name="title_border" left="6" right="6" top="6" bottom="4"/>
+  </frame_geometry>
+
+  <frame_geometry name="maximized" parent="normal">
+    <distance name="left_width" value="0"/>
+    <distance name="right_width" value="0"/>
+    <distance name="bottom_height" value="0"/>
+    <border name="title_border" left="0" right="0" top="0" bottom="0"/>
+  </frame_geometry>
+
+  <!-- COLORS -->
+  <constant name="bg_color" value="#0d0b1a"/>
+  <constant name="border_color" value="#5ef0ff"/>
+  <constant name="glow_color" value="#ff4fd8"/>
+  <constant name="text_color" value="#d6eaff"/>
+  <constant name="inactive_text_color" value="#8a9bb2"/>
+  <constant name="button_hover" value="#2ce4ff"/>
+  <constant name="button_active" value="#ff4fd8"/>
+
+  <!-- DRAW WINDOW BACKGROUND -->
+  <draw_ops name="frame_bg">
+    <rectangle color="bg_color" x="0" y="0" width="width" height="height" filled="true" />
+    <gradient type="vertical" x="0" y="0" width="width" height="title_height">
+      <color value="#12102a"/>
+      <color value="#1a1840"/>
+    </gradient>
+    <rectangle color="border_color" x="0" y="0" width="width" height="height" filled="false" />
+  </draw_ops>
+
+  <!-- DRAW TITLE -->
+  <draw_ops name="title_text">
+    <title color="text_color" x="width/2" y="(title_height - title_height/2)" ellipsize="true" justify="center"/>
+  </draw_ops>
+
+  <!-- BUTTONS -->
+  <draw_ops name="button_close">
+    <circle color="button_active" filled="true" x="width/2" y="height/2" radius="height/3"/>
+    <line color="bg_color" x1="width*0.3" y1="height*0.3" x2="width*0.7" y2="height*0.7" width="2"/>
+    <line color="bg_color" x1="width*0.7" y1="height*0.3" x2="width*0.3" y2="height*0.7" width="2"/>
+  </draw_ops>
+
+  <draw_ops name="button_maximize">
+    <rectangle color="button_hover" x="width*0.3" y="height*0.3" width="width*0.4" height="height*0.4" filled="false" />
+  </draw_ops>
+
+  <draw_ops name="button_minimize">
+    <rectangle color="button_hover" x="width*0.3" y="height*0.65" width="width*0.4" height="2" filled="true" />
+  </draw_ops>
+
+  <!-- WINDOW TYPES -->
+  <frame_style name="normal" geometry="normal">
+    <piece position="entire_background" draw_ops="frame_bg"/>
+    <piece position="title" draw_ops="title_text"/>
+    <button function="close" state="normal" draw_ops="button_close"/>
+    <button function="maximize" state="normal" draw_ops="button_maximize"/>
+    <button function="minimize" state="normal" draw_ops="button_minimize"/>
+  </frame_style>
+
+  <frame_style_set name="normal">
+    <frame focus="yes" state="normal" style="normal"/>
+    <frame focus="no" state="normal" style="normal"/>
+  </frame_style_set>
+
+  <window type="normal" style_set="normal"/>
+</metacity_theme>

@@ -1,0 +1,148 @@
+/* Fennec GTK3 theme - gtk.css
+   Palette based on the provided image:
+   - Cyan neon: #00FFF7
+   - Magenta/violet: #C500FF
+   - Deep background: #101020
+   - Accent black: #080810
+   - Text: #E0E0E0
+   Design: dark, translucent panels, soft rounded corners, neon focus glow.
+*/
+
+@define-color bg_color #101020;
+@define-color bg_panel rgba(16,16,32,0.75);
+@define-color bg_panel_solid #0f1020;
+@define-color neon_cyan #00FFF7;
+@define-color neon_magenta #C500FF;
+@define-color text_color #E0E0E0;
+@define-color accent_black #080810;
+
+/* Global window/background */
+window, .window-frame {
+  background-color: @bg_color;
+  color: @text_color;
+}
+
+/* Primary panels (menus, sidebars) - translucent */
+.panel, .sidebar, .view {
+  background-color: @bg_panel;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 6px;
+}
+
+/* Appbar / Headerbar */
+headerbar, .header-bar {
+  background-color: transparent;
+  min-height: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Buttons */
+button, .button {
+  background-color: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: @text_color;
+  padding: 6px 10px;
+}
+
+/* Hover and active */
+button:hover, .button:hover {
+  background-color: rgba(0,255,247,0.04);
+}
+
+button:checked, .button:checked, button:active, .button:active, .selected {
+  background-image: linear-gradient(90deg, rgba(0,255,247,0.06), rgba(197,0,255,0.04));
+  box-shadow: 0 0 18px rgba(0,255,247,0.12), 0 0 6px rgba(197,0,255,0.06);
+  border: 1px solid rgba(0,255,247,0.15);
+}
+
+/* Focus outlines (neon glow) */
+*:focus {
+  box-shadow: 0 0 12px rgba(0,255,247,0.18);
+  outline: none;
+}
+
+/* Entry (text inputs) */
+entry, textview, .entry, .textview {
+  background-color: rgba(255,255,255,0.02);
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: @text_color;
+  padding: 6px;
+}
+
+/* Menus */
+menu, .menu {
+  background-color: rgba(16,16,32,0.85);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+/* Tooltip */
+.tooltip {
+  background-color: rgba(12,12,20,0.9);
+  color: @text_color;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* TreeView and List */
+.treeview, treeview, .view, .listbox {
+  background-color: transparent;
+  color: @text_color;
+}
+
+/* Scrollbars - subtle */
+scrollbar slider {
+  background-color: rgba(255,255,255,0.02);
+  border-radius: 6px;
+  min-height: 16px;
+}
+scrollbar slider:hover {
+  background-color: rgba(0,255,247,0.06);
+}
+
+/* Tab style */
+stack, notebook, .notebook {
+  background-color: transparent;
+}
+notebook tab {
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+notebook tab:selected {
+  background-image: linear-gradient(90deg, rgba(0,255,247,0.06), rgba(197,0,255,0.04));
+  box-shadow: 0 0 14px rgba(0,255,247,0.10);
+  color: @text_color;
+}
+
+/* Notifications and badges */
+.badge {
+  background-color: @neon_magenta;
+  color: black;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Dialogs - elevated translucent panel */
+dialog, .dialog {
+  background-color: rgba(16,16,32,0.85);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  color: @text_color;
+}
+
+/* Small UI tweaks */
+.menuitem, .menuitem.image, .menuitem.image:hover {
+  padding: 8px;
+}
+
+.header-bar .title {
+  font-weight: 600;
+  color: @text_color;
+}
+
+/* Allow the system to use overlay scrollbars and subtle neon accents */
